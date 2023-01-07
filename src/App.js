@@ -6,7 +6,7 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import { Container, CssBaseline, Link, Box, Typography, MenuItem, InputLabel, Button, Select, FormControl, TextField } from '@material-ui/core';
 
 const axios = require('axios').default;
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let timeSlot = [
