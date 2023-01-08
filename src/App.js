@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function BadmintonBooker() {
+export default function SportsBooker() {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date().setDate(new Date().getDate()+7));
   const [time, setTime] = React.useState('02:00 PM');
