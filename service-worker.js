@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sports_booker/precache-manifest.a9ace80fceeee715bba9380442a64a00.js"
+  "/sports_booker/precache-manifest.68224b6687ddef6170eba207b58f7570.js"
 );
 
 self.addEventListener('message', (event) => {
