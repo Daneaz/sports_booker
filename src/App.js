@@ -133,7 +133,7 @@ export default function SportsBooker() {
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <TextField className={classes.itemMargin} fullWidth label="Email:" onChange={handleEmailChange} />
-          <TextField className={classes.itemMargin} fullWidth label="Password:" onChange={handlePasswordChange} />
+          <TextField type="password" className={classes.itemMargin} fullWidth label="Password:" onChange={handlePasswordChange} />
           <MuiPickersUtilsProvider className={classes.itemMargin} utils={DateFnsUtils}>
             <KeyboardDatePicker
               disableToolbar
