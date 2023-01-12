@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d4b50eb58a8dcb890f8526b611d83f45",
+    "revision": "16cb5181ada93bb51cffd8541be52109",
     "url": "/sports_booker/index.html"
   },
   {
-    "revision": "3ca21c930972afe22829",
+    "revision": "91040876eb282ec3d64a",
     "url": "/sports_booker/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sports_booker/static/js/2.4a0adcbf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3ca21c930972afe22829",
-    "url": "/sports_booker/static/js/main.e0e70026.chunk.js"
+    "revision": "91040876eb282ec3d64a",
+    "url": "/sports_booker/static/js/main.e7f8ce54.chunk.js"
   },
   {
     "revision": "7d4454c5acd234a8b708",
