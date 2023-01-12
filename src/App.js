@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { Container, CssBaseline, Link, Box, Typography, MenuItem, InputLabel, Button, Select, FormControl, TextField } from '@material-ui/core';
+import moment from "moment";
 
 const axios = require('axios').default;
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -78,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SportsBooker() {
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = React.useState(new Date().setDate(new Date().getDate()+7));
+  const [selectedDate, setSelectedDate] = React.useState(moment(new Date()).add(7, "days"));
   const [time, setTime] = React.useState('02:00 PM');
   const [duration, setDuration] = React.useState(120);
   const [type, setType] = React.useState(typeList[0]);
@@ -132,14 +133,15 @@ export default function SportsBooker() {
           National Stadium Booker
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
-          <TextField className={classes.itemMargin} fullWidth label="Email:" onChange={handleEmailChange} />
-          <TextField type="password" className={classes.itemMargin} fullWidth label="Password:" onChange={handlePasswordChange} />
+          <TextField required className={classes.itemMargin} fullWidth label="Email:" onChange={handleEmailChange} />
+          <TextField required type="password" className={classes.itemMargin} fullWidth label="Password:" onChange={handlePasswordChange} />
           <MuiPickersUtilsProvider className={classes.itemMargin} utils={DateFnsUtils}>
             <KeyboardDatePicker
               disableToolbar
               variant="inline"
               format="yyyy-MM-dd"
               margin="normal"
+              minDate={moment(new Date()).add(7, "days")}
               id="date-picker-inline"
               label="Date:"
               value={selectedDate}
