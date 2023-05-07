@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sports_booker/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/sports_booker/static/js/main.46311ff4.chunk.js",
-    "main.js.map": "/sports_booker/static/js/main.46311ff4.chunk.js.map",
+    "main.js": "/sports_booker/static/js/main.52aeea63.chunk.js",
+    "main.js.map": "/sports_booker/static/js/main.52aeea63.chunk.js.map",
     "runtime-main.js": "/sports_booker/static/js/runtime-main.9c786378.js",
     "runtime-main.js.map": "/sports_booker/static/js/runtime-main.9c786378.js.map",
-    "static/js/2.e950fe8d.chunk.js": "/sports_booker/static/js/2.e950fe8d.chunk.js",
-    "static/js/2.e950fe8d.chunk.js.map": "/sports_booker/static/js/2.e950fe8d.chunk.js.map",
+    "static/js/2.17baaec8.chunk.js": "/sports_booker/static/js/2.17baaec8.chunk.js",
+    "static/js/2.17baaec8.chunk.js.map": "/sports_booker/static/js/2.17baaec8.chunk.js.map",
     "index.html": "/sports_booker/index.html",
-    "precache-manifest.db89dd245369f3bb83c711e70014dc26.js": "/sports_booker/precache-manifest.db89dd245369f3bb83c711e70014dc26.js",
+    "precache-manifest.0953d67b9f76cf71b2af6142ead90e99.js": "/sports_booker/precache-manifest.0953d67b9f76cf71b2af6142ead90e99.js",
     "service-worker.js": "/sports_booker/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/sports_booker/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.e950fe8d.chunk.js.LICENSE.txt": "/sports_booker/static/js/2.e950fe8d.chunk.js.LICENSE.txt"
+    "static/js/2.17baaec8.chunk.js.LICENSE.txt": "/sports_booker/static/js/2.17baaec8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9c786378.js",
-    "static/js/2.e950fe8d.chunk.js",
+    "static/js/2.17baaec8.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.46311ff4.chunk.js"
+    "static/js/main.52aeea63.chunk.js"
   ]
 }
