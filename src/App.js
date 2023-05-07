@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import 'date-fns';
 import {makeStyles} from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
@@ -94,7 +94,7 @@ export default function SportsBooker() {
     const [type, setType] = React.useState(typeList[0]);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const [formRef, setFormRef] = React.useState('');
+    const formRef = useRef(null);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -121,13 +121,6 @@ export default function SportsBooker() {
         setEmail(event.target.value);
     }
 
-    const handleSubmit = async (event) => {
-        formRef.dispatchEvent(
-            new Event("submit", { bubbles: true, cancelable: true })
-        )
-
-    }
-
     const submitForm = async (event) =>{
         event.preventDefault();
         try {
@@ -139,7 +132,8 @@ export default function SportsBooker() {
                 duration: duration,
                 type: type
             });
-            alert(response.data);
+            formRef.current.submit();
+            alert(response);
         } catch (err) {
             alert(err);
         }
@@ -152,7 +146,7 @@ export default function SportsBooker() {
                 <Typography component="h1" variant="h5">
                     National Stadium Booker
                 </Typography>
-                <form ref={ref => setFormRef(ref)} className={classes.form} onSubmit={handleSubmit}>
+                <form ref={formRef} className={classes.form} onSubmit={submitForm}>
                     <TextField required className={classes.itemMargin} fullWidth label="Email:"
                                onChange={handleEmailChange}/>
                     <TextField required type="password" className={classes.itemMargin} fullWidth label="Password:"
@@ -218,7 +212,6 @@ export default function SportsBooker() {
                     </FormControl>
 
                     <Button
-                        onClick={()=>submitForm()}
                         type="submit"
                         fullWidth
                         variant="contained"

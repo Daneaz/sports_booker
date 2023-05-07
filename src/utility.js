@@ -10,7 +10,8 @@ const getApiConf = (method, jsonObj, token) => {
         method: method,
         headers: {
             'Content-Type': 'application/json',
-        }
+        },
+        timeout: 30000
     }
     if (token) {
         conf.headers.Authorization = `Bearer ${token}`;
