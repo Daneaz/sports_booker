@@ -5,10 +5,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { Container, CssBaseline, Link, Box, Typography, MenuItem, InputLabel, Button, Select, FormControl, TextField } from '@material-ui/core';
 import moment from "moment";
-
-const axios = require('axios').default;
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+import {fetchAPI} from "./utility";
 
 let timeSlot = [
   "07:00 AM",
@@ -46,7 +43,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://github.com/Daneaz/BadmintonBooker">
+      <Link color="inherit" href="https://github.com/Daneaz/sports_booker">
         Eugene Wu
       </Link>{' '}
       {new Date().getFullYear()}
@@ -110,21 +107,23 @@ export default function SportsBooker() {
     setEmail(event.target.value);
   }
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    axios.post('/book', {
-      email: email,
-      password: password,
-      date: selectedDate,
-      time: time,
-      duration: duration,
-      type: type
-    }).then((response) => {
+  const handleSubmit = async () => {
+
+    try {
+      let response = await fetchAPI('POST', 'book', {
+        email: email,
+        password: password,
+        date: selectedDate,
+        time: time,
+        duration: duration,
+        type: type
+      });
       alert(response.data);
-    }).catch((error) => {
-      alert(error);
-    });
+    } catch (err){
+      alert(err);
+    }
   }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -141,7 +140,7 @@ export default function SportsBooker() {
               variant="inline"
               format="yyyy-MM-dd"
               margin="normal"
-              minDate={moment(new Date()).add(7, "days")}
+              minDate={moment(new Date()).add(1, "days")}
               id="date-picker-inline"
               label="Date:"
               value={selectedDate}
