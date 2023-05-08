@@ -98,7 +98,6 @@ export default function SportsBooker() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [isSubmit, setIsSubmit] = React.useState(false);
-    const formRef = useRef(null);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -138,7 +137,6 @@ export default function SportsBooker() {
                 duration: duration,
                 type: type
             });
-            formRef.current.submit();
             alert(response);
             setIsSubmit(false);
         } catch (err) {
@@ -154,7 +152,7 @@ export default function SportsBooker() {
                 <Typography component="h1" variant="h5">
                     National Stadium Booker
                 </Typography>
-                <form ref={formRef} className={classes.form} onSubmit={submitForm}>
+                <form className={classes.form} onSubmit={submitForm}>
                     <TextField required className={classes.itemMargin} fullWidth label="Email:"
                                onChange={handleEmailChange}/>
                     <TextField required type="password" className={classes.itemMargin} fullWidth label="Password:"
