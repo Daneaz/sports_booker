@@ -14,7 +14,7 @@ import {
     Button,
     Select,
     FormControl,
-    TextField
+    TextField, CircularProgress
 } from '@material-ui/core';
 import moment from "moment";
 import {fetchAPI} from "./utility";
@@ -77,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     form: {
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     submit: {
         marginTop: theme.spacing(5),
@@ -94,6 +97,7 @@ export default function SportsBooker() {
     const [type, setType] = React.useState(typeList[0]);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [isSubmit, setIsSubmit] = React.useState(false);
     const formRef = useRef(null);
 
     const handleDateChange = (date) => {
@@ -121,8 +125,10 @@ export default function SportsBooker() {
         setEmail(event.target.value);
     }
 
-    const submitForm = async (event) =>{
+    const submitForm = async (event) => {
+        setIsSubmit(true);
         event.preventDefault();
+
         try {
             let response = await fetchAPI('POST', 'book', {
                 email: email,
@@ -134,8 +140,10 @@ export default function SportsBooker() {
             });
             formRef.current.submit();
             alert(response);
+            setIsSubmit(false);
         } catch (err) {
             alert(err);
+            setIsSubmit(false);
         }
     }
 
@@ -210,16 +218,20 @@ export default function SportsBooker() {
                             }
                         </Select>
                     </FormControl>
+                    {isSubmit ?
+                        <CircularProgress className={classes.submit}/>
+                        :
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Book
+                        </Button>
+                    }
 
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Book
-                    </Button>
                 </form>
             </div>
 
