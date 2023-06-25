@@ -18,6 +18,7 @@ import {
 } from '@material-ui/core';
 import moment from "moment";
 import {fetchAPI} from "./utility";
+import Swal from 'sweetalert2'
 
 let timeSlot = [
     "07:00 AM",
@@ -127,7 +128,6 @@ export default function SportsBooker() {
     const submitForm = async (event) => {
         setIsSubmit(true);
         event.preventDefault();
-
         try {
             let response = await fetchAPI('POST', 'book', {
                 email: email,
@@ -137,10 +137,25 @@ export default function SportsBooker() {
                 duration: duration,
                 type: type
             });
-            alert(response);
+
+            await Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: response,
+                showConfirmButton: true
+            })
+
             setIsSubmit(false);
         } catch (err) {
-            alert(err);
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                html: err +
+                    ', Please visit ' +
+                    '<a href="https://sportshub.perfectgym.com/clientportal2/#/FacilityBooking?clubId=1">OCBC SportsHub</a> ' +
+                    'for more detail',
+                showConfirmButton: true
+            })
             setIsSubmit(false);
         }
     }
