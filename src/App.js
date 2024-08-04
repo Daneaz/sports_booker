@@ -1,20 +1,21 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import 'date-fns';
 import {makeStyles} from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
-import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
+import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import {
+    Box,
+    Button,
+    CircularProgress,
     Container,
     CssBaseline,
-    Link,
-    Box,
-    Typography,
-    MenuItem,
-    InputLabel,
-    Button,
-    Select,
     FormControl,
-    TextField, CircularProgress
+    InputLabel,
+    Link,
+    MenuItem,
+    Select,
+    TextField,
+    Typography
 } from '@material-ui/core';
 import moment from "moment";
 import {fetchAPI} from "./utility";
