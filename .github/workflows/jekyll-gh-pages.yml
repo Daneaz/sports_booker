@@ -34,9 +34,8 @@ jobs:
           node-version: '16.20.1'
       - name: Set up NPM
         run: npm install -g npm@8
-      - run: npm install --legacy-peer-deps
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Build
         run: npm run build
       - name: Upload artifact
