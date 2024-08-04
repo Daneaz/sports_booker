@@ -33,6 +33,7 @@ jobs:
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - run: npm install -g npm@latest
       - name: Install dependencies
         run: npm install
       - name: Build
