@@ -29,8 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install and Build
-        run: |
-          npm run build
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
