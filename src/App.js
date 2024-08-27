@@ -52,6 +52,7 @@ let typeList = [
     {text: "Volleyball Courts", value: 35},
     {text: "Basketball Courts (Sports Hub Hard Courts)", value: 42},
     {text: "Tennis Indoor Courts", value: 85},
+    {text: "Tennis Outdoor Courts", value: 83}
 ]
 
 function Copyright() {
